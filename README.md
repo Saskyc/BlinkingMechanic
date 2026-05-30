@@ -28,3 +28,4 @@ Ai was used to help me with Mirror getting the method to create spawn message vi
 Ai was used for figuring out Elapsed DateTime to use as cooldown.
 Ai was used to help me create the patch.
 I've copied gitignore from great developer MedveMerci from repository that can be found here: https://github.com/MedveMarci/Scp999
+Also I didn't figure out how to spawn for single player that was another legend: https://github.com/MS-crew/NightVisionGoggles/blob/master/NightVisionGoggles/Extensions.cs
