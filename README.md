@@ -1,4 +1,4 @@
-![img](https://img.shields.io/github/downloads/Saskyc/BlinkingMechanic/total?style=for-the-badge)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Saskyc/BlinkingMechanic/total)
 # About
 This plugin creates primitive infront of Player as "blinking". Player can still see under them and above as more primitives would have to be created.
 There is also API that can easily be used to make player blink and events that are cancelable if any developer would want to use it.
