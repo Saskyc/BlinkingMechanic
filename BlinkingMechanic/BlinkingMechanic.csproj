@@ -12,11 +12,13 @@
         <AssemblyName>BlinkingMechanic</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
+        <DebugType>embedded</DebugType>
         <Optimize>false</Optimize>
         <OutputPath>bin\Debug\</OutputPath>
         <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -33,14 +35,66 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="0Harmony, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\Lib.Harmony.2.4.2\lib\net48\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="LabApi, Version=1.1.6.0, Culture=neutral, processorArchitecture=Amd64">
+          <HintPath>..\packages\Northwood.LabAPI.1.1.6\lib\net48\LabApi.dll</HintPath>
+        </Reference>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
+	<Reference Include="Assembly-CSharp">
+        	<HintPath>$(LTSL_REFS)\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+        	<HintPath>$(LTSL_REFS)\Assembly-CSharp-firstpass.dll</HintPath>
+        </Reference>
+        <Reference Include="CommandSystem.Core">
+        	<HintPath>$(LTSL_REFS)\CommandSystem.Core.dll</HintPath>
+        </Reference>
+	<Reference Include="Mirror">
+        	<HintPath>$(LTSL_REFS)\Mirror.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+        	<HintPath>$(LTSL_REFS)\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+	<Reference Include="Mirror">
+        	<HintPath>$(LTSL_REFS)\Mirror.dll</HintPath>
+        </Reference>
+	<Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+          	<HintPath>..\packages\YamlDotNet.11.0.1\lib\net45\YamlDotNet.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Class1.cs"/>
+        <Compile Include="API\Events\EventArgs\BlinkedEventArgs.cs" />
+        <Compile Include="API\Events\EventArgs\BlinkingEventArgs.cs" />
+        <Compile Include="API\Events\EventArgs\MainPrimitiveSpawnedEventArgs.cs" />
+        <Compile Include="API\Events\EventArgs\MainPrimitiveSpawningEventArgs.cs" />
+        <Compile Include="API\Events\EventArgs\PrimitiveHiddenEventArgs.cs" />
+        <Compile Include="API\Events\EventArgs\PrimitiveHidingEventArgs.cs" />
+        <Compile Include="API\Events\EventArgs\PrimitiveShowedEventArgs.cs" />
+        <Compile Include="API\Events\EventArgs\PrimitiveShowingEventArgs.cs" />
+        <Compile Include="API\Events\Handlers\BlinkEventHandler.cs" />
+        <Compile Include="API\Events\Interfaces\IPlayerDataEvent.cs" />
+        <Compile Include="API\Events\Interfaces\IBlinkReasonEvent.cs" />
+        <Compile Include="API\Events\Interfaces\IPrimitiveOptionEvent.cs" />
+        <Compile Include="API\Events\Interfaces\ITargetDataEvent.cs" />
+        <Compile Include="API\Events\Test\TestEvents.cs" />
+        <Compile Include="API\Extensions\PlayerExtension.cs" />
+        <Compile Include="API\PlayerData.cs" />
+        <Compile Include="Config.cs" />
+        <Compile Include="EntryPoint.cs" />
+        <Compile Include="Features\BlinkingCoroutine.cs" />
+        <Compile Include="Features\BlinkReason.cs" />
+        <Compile Include="Features\PlayerEvents.cs" />
+        <Compile Include="Features\Scp173ObserverPatch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="App.config" />
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

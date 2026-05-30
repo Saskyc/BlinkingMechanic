@@ -1,6 +1,8 @@
-﻿namespace BlinkingMechanic.API.Events.Interfaces;
+﻿using BlinkingMechanic.Features;
 
-public class IBlinkReasonEvent
+namespace BlinkingMechanic.API.Events.Interfaces;
+
+public interface IBlinkReasonEvent
 {
-    
+    public BlinkReason Reason { get; set; }
 }

@@ -1,7 +1,7 @@
 ﻿using BlinkingMechanic.Features;
 using LabApi.Features.Wrappers;
 
-namespace BlinkingMechanic.API;
+namespace BlinkingMechanic.API.Extensions;
 
 public static class PlayerExtension
 {

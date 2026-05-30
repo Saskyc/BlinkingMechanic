@@ -2,5 +2,5 @@
 
 public interface ITargetDataEvent
 {
-    
+    public PlayerData Target { get; }
 }

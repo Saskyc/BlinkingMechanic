@@ -3,15 +3,16 @@ using LabApi.Features.Wrappers;
 
 namespace BlinkingMechanic.API.Events.EventArgs;
 
-public class OnPrimitiveHidden : System.EventArgs, IPlayerDataEvent, LabApi.Events.Arguments.Interfaces.ICancellableEvent, LabApi.Events.Arguments.Interfaces.IAdminToyEvent
+public class PrimitiveHiddenEventArgs : System.EventArgs, IPlayerDataEvent, ITargetDataEvent, LabApi.Events.Arguments.Interfaces.IAdminToyEvent
 {
     public PlayerData Player { get; }
-    public bool IsAllowed { get; set; } = true;
+    public PlayerData Target { get; }
     public AdminToy? AdminToy { get; }
 
-    public OnPrimitiveHidden(PlayerData forPlayer, AdminToy? adminToy)
+    public PrimitiveHiddenEventArgs(PlayerData player, AdminToy? adminToy, PlayerData target)
     {
-        Player = forPlayer; ;
+        Player = player;
         AdminToy = adminToy;
+        Target = target;
     }
 }
