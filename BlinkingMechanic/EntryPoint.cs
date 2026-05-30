@@ -12,7 +12,7 @@ namespace BlinkingMechanic
         public override string Name { get; } = "BlinkingMechanic";
         public override string Description { get; } = "Mechanic introducing blinking into SCP:SL";
         public override string Author { get; } = "Saskyc";
-        public override Version Version { get; } = new Version(1, 0, 0);
+        public override Version Version { get; } = new Version(1, 1, 0);
         public override Version RequiredApiVersion { get; } = new Version(1, 1, 6, 0);
         public static EntryPoint? Instance { get; private set; }
         public CoroutineHandle? Coroutine { get; private set; }

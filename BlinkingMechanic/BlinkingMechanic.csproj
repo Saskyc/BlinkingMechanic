@@ -70,17 +70,9 @@
     <ItemGroup>
         <Compile Include="API\Events\EventArgs\BlinkedEventArgs.cs" />
         <Compile Include="API\Events\EventArgs\BlinkingEventArgs.cs" />
-        <Compile Include="API\Events\EventArgs\MainPrimitiveSpawnedEventArgs.cs" />
-        <Compile Include="API\Events\EventArgs\MainPrimitiveSpawningEventArgs.cs" />
-        <Compile Include="API\Events\EventArgs\PrimitiveHiddenEventArgs.cs" />
-        <Compile Include="API\Events\EventArgs\PrimitiveHidingEventArgs.cs" />
-        <Compile Include="API\Events\EventArgs\PrimitiveShowedEventArgs.cs" />
-        <Compile Include="API\Events\EventArgs\PrimitiveShowingEventArgs.cs" />
         <Compile Include="API\Events\Handlers\BlinkEventHandler.cs" />
         <Compile Include="API\Events\Interfaces\IPlayerDataEvent.cs" />
         <Compile Include="API\Events\Interfaces\IBlinkReasonEvent.cs" />
-        <Compile Include="API\Events\Interfaces\IPrimitiveOptionEvent.cs" />
-        <Compile Include="API\Events\Interfaces\ITargetDataEvent.cs" />
         <Compile Include="API\Events\Test\TestEvents.cs" />
         <Compile Include="API\Extensions\PlayerExtension.cs" />
         <Compile Include="API\PlayerData.cs" />
@@ -88,8 +80,6 @@
         <Compile Include="EntryPoint.cs" />
         <Compile Include="Features\BlinkingCoroutine.cs" />
         <Compile Include="Features\BlinkReason.cs" />
-        <Compile Include="Features\PlayerEvents.cs" />
-        <Compile Include="Features\Scp173ObserverPatch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <ItemGroup>

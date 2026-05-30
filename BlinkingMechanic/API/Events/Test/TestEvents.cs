@@ -16,15 +16,6 @@ internal class TestEvents
         BlinkEventHandler.Blinking += OnBlinking;
         BlinkEventHandler.Blinked += OnBlinked;
         
-        BlinkEventHandler.MainPrimitiveSpawning += OnMainPrimitiveSpawning;
-        BlinkEventHandler.MainPrimitiveSpawned += OnMainPrimitiveSpawned;
-        
-        BlinkEventHandler.PrimitiveHiding += OnPrimitiveHiding;
-        BlinkEventHandler.PrimitiveHidden += OnPrimitiveHidden;
-        
-        BlinkEventHandler.PrimitiveShowing += OnPrimitiveShowing;
-        BlinkEventHandler.PrimitiveShowed += OnPrimitiveShowed;
-        
         Subscribed = true;
     }
 
@@ -34,15 +25,6 @@ internal class TestEvents
         
         BlinkEventHandler.Blinking -= OnBlinking;
         BlinkEventHandler.Blinked -= OnBlinked;
-        
-        BlinkEventHandler.MainPrimitiveSpawning -= OnMainPrimitiveSpawning;
-        BlinkEventHandler.MainPrimitiveSpawned -= OnMainPrimitiveSpawned;
-        
-        BlinkEventHandler.PrimitiveHiding -= OnPrimitiveHiding;
-        BlinkEventHandler.PrimitiveHidden -= OnPrimitiveHidden;
-        
-        BlinkEventHandler.PrimitiveShowing -= OnPrimitiveShowing;
-        BlinkEventHandler.PrimitiveShowed -= OnPrimitiveShowed;
         
         Subscribed = false;
     }
@@ -68,78 +50,6 @@ internal class TestEvents
         else
         {
             Logger.Info("Couldn't get Player who blinked");
-        }
-    }
-
-    internal static void OnMainPrimitiveSpawning(MainPrimitiveSpawningEventArgs ev)
-    {
-        Logger.Info("Main primitive is spawning");
-    }
-
-    internal static void OnMainPrimitiveSpawned(MainPrimitiveSpawnedEventArgs ev)
-    {
-        Logger.Info("Main primitive spawned");
-    }
-
-    internal static void OnPrimitiveHiding(PrimitiveHidingEventArgs ev)
-    {
-        if (ev.Player.Player.TryGetTarget(out Player player) && ev.Target.Player.TryGetTarget(out Player target))
-        {
-            if (player == target)
-            {
-                Logger.Info($"Hiding primitive for {player.Nickname} that he owns.");
-            }
-            else
-            {
-                Logger.Info($"Hiding primitive owned by {player.Nickname} for {target.Nickname}.");
-            }
-        }
-        else
-        {
-            Logger.Info("Couldn't get the primitive that was being hidden.");
-        }
-    }
-    
-    internal static void OnPrimitiveHidden(PrimitiveHiddenEventArgs ev)
-    {
-        if (ev.Player.Player.TryGetTarget(out Player player) && ev.Target.Player.TryGetTarget(out Player target))
-        {
-            if (player == target)
-            {
-                Logger.Info($"Hidden primitive for {player.Nickname} that he owns.");
-            }
-            else
-            {
-                Logger.Info($"Hidden primitive owned by {player.Nickname} for {target.Nickname}.");
-            }
-        }
-        else
-        {
-            Logger.Info("Couldn't get the primitive that was hidden.");
-        }
-    }
-
-    internal static void OnPrimitiveShowing(PrimitiveShowingEventArgs ev)
-    {
-        if (ev.Player.Player.TryGetTarget(out Player player))
-        {
-            Logger.Info($"Showing primitive for {player.Nickname}");
-        }
-        else
-        {
-            Logger.Info("Couldn't get player that the primitive was showing for.");
-        }
-    }
-    
-    internal static void OnPrimitiveShowed(PrimitiveShowedEventArgs ev)
-    {
-        if (ev.Player.Player.TryGetTarget(out Player player))
-        {
-            Logger.Info($"Showed primitive for {player.Nickname}");
-        }
-        else
-        {
-            Logger.Info("Couldn't get player that the primitive was showed for.");
         }
     }
 }

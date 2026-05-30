@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BlinkingMechanic.API;
+using CustomPlayerEffects;
 using LabApi.Features.Wrappers;
 using MEC;
 using Logger = LabApi.Features.Console.Logger;
@@ -33,11 +34,10 @@ public class BlinkingCoroutine
     {
         if (!player.IsAlive) return;
         var data = PlayerData.GetPlayerData(player);
-        data.TryHideSetup();
         
-        if (data.Elapsed.TotalMilliseconds > EntryPoint.Instance!.Config.BlinkLasting && data.PrimitiveSetupped && data.PrimitiveObjectToy?.GameObject && data.Shown)
+        if (data.Elapsed.TotalMilliseconds > EntryPoint.Instance!.Config.BlinkLasting)
         {
-            data.Hide();
+            player.DisableEffect<Blindness>();
         }
 
         if (data.Elapsed.TotalSeconds > EntryPoint.Instance!.Config.TimeBlink)
