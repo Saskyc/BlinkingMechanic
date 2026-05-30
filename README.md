@@ -31,3 +31,4 @@ https://www.youtube.com/watch?v=64LlXKs-FvA
 # Credits:
 Ai was used for figuring out Elapsed DateTime to use as cooldown and helping me create the patch.
 I've copied gitignore from great developer MedveMerci from repository that can be found here: https://github.com/MedveMarci/Scp999
+Axwabo for great idea to not use primitive but blindness effect
