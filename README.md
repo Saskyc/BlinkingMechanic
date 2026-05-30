@@ -5,8 +5,17 @@ There is also API that can easily be used to make player blink and events that a
 I've used networking to ensure that players cannot see each others primitives (yes also NPCs).
 If there are any issues feel free to ping me on Discord/Create issue here on github (It might give me time to notice the issue though)
 
-# How does it look in-game?
+# Config
+```
+# If Debug is enabled [You might have a lot of logs in console after this]
+is_debug: true
+# The time that blinking stays. [IN SECONDS]
+time_blink: 3
+# The amount of time that blinking is lasting. [IN MILISECONDS]
+blink_lasting: 500
+```
 
+# How does it look in-game?
 ### Front
 <img width="1919" height="1079" alt="obrazek" src="https://github.com/user-attachments/assets/6bef6dbd-152c-49a9-bb47-d18fa933c5a9" /><br>
 ### Below
