@@ -32,7 +32,8 @@ public class BlinkingCoroutine
 
     public static void Action(Player player)
     {
-        if (!player.IsAlive) return;
+        if (!player.IsAlive || EntryPoint.Instance!.Config.BlacklistedRoles.Contains(player.Role) 
+                            || EntryPoint.Instance.Config.BlacklistedTeams.Contains(player.Team)) return;
         var data = PlayerData.GetPlayerData(player);
         
         if (data.Elapsed.TotalMilliseconds > EntryPoint.Instance!.Config.BlinkLasting)

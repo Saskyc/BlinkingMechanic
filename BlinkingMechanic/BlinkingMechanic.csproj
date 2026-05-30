@@ -80,6 +80,7 @@
         <Compile Include="EntryPoint.cs" />
         <Compile Include="Features\BlinkingCoroutine.cs" />
         <Compile Include="Features\BlinkReason.cs" />
+        <Compile Include="Features\Scp173ObserverPatch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <ItemGroup>

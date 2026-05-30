@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using PlayerRoles;
 
 namespace BlinkingMechanic
 {
@@ -12,5 +14,22 @@ namespace BlinkingMechanic
         
         [Description("Time that blinking is lasting. [IN MILISECONDS]")]
         public float BlinkLasting { get; set; } = 500;
+
+        public List<RoleTypeId> BlacklistedRoles { get; set; } = 
+        [
+            RoleTypeId.Scp049,
+            RoleTypeId.Scp0492,
+            RoleTypeId.Scp079,
+            RoleTypeId.Scp096,
+            RoleTypeId.Scp106,
+            RoleTypeId.Scp173,
+            RoleTypeId.Scp939,
+            RoleTypeId.Scp3114,
+        ];
+
+        public List<Team> BlacklistedTeams { get; set; } =
+        [
+            Team.SCPs,
+        ];
     }
 }
