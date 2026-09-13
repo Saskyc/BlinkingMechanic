@@ -1,7 +1,12 @@
 using System;
+using ASS.Features.Collections;
 using BlinkingMechanic.API.Events.Test;
+using BlinkingMechanic.EventHandler;
 using BlinkingMechanic.Features;
+using BlinkingMechanic.SSS;
 using HarmonyLib;
+using LabApi.Events;
+using LabApi.Events.CustomHandlers;
 using LabApi.Loader.Features.Plugins;
 using MEC;
 
@@ -18,6 +23,8 @@ namespace BlinkingMechanic
         public CoroutineHandle? Coroutine { get; private set; }
         public Harmony? Harmony { get; private set; }
         
+        public PlayerEventHandler? PlayerEventHandler { get; private set; }
+        
         public override void Enable()
         {
             Instance = this;
@@ -29,10 +36,17 @@ namespace BlinkingMechanic
             Coroutine = Timing.RunCoroutine(BlinkingCoroutine.Loop());
             Harmony = new Harmony("BlinkingMechanic.com");
             Harmony.PatchAll();
+
+            ASS.Events.Handlers.SettingEvents.SettingTriggered += BlinkingMenu.Instance.OnSettingTriggered;
+            CustomHandlersManager.RegisterEventsHandler(PlayerEventHandler ??= new PlayerEventHandler());
         }
 
         public override void Disable()
         {
+            if(PlayerEventHandler != null)
+                CustomHandlersManager.UnregisterEventsHandler(PlayerEventHandler);
+            ASS.Events.Handlers.SettingEvents.SettingTriggered -= BlinkingMenu.Instance.OnSettingTriggered;
+            
             if (Harmony != null)
             {
                 Harmony.UnpatchAll();

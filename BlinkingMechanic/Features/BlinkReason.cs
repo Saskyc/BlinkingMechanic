@@ -4,5 +4,6 @@ public enum BlinkReason
 {
     Forced,
     Time,
+    Manual,
     Unknown,
 }

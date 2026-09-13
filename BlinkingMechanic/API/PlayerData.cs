@@ -8,6 +8,8 @@ using BlinkingMechanic.Features;
 using CustomPlayerEffects;
 using LabApi.Features.Wrappers;
 using Mirror;
+using RueI.API;
+using RueI.API.Elements;
 using UnityEngine;
 using Logger = LabApi.Features.Console.Logger;
 using PrimitiveObjectToy = LabApi.Features.Wrappers.PrimitiveObjectToy;
@@ -16,17 +18,6 @@ namespace BlinkingMechanic.API;
 
 public class PlayerData
 {
-    public static readonly MethodInfo? ShowMethod = typeof(NetworkServer).GetMethod(
-        "SendSpawnMessage",
-        BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
-        null,
-        new[]
-        {
-            typeof(NetworkIdentity),
-            typeof(NetworkConnection)
-        },
-        null);
-    
     public static ConditionalWeakTable<Player, PlayerData> PlayerDataTable { get; } = new();
     public DateTime LastBlink { get; private set; }
     public TimeSpan Elapsed => DateTime.Now - LastBlink;
@@ -48,7 +39,7 @@ public class PlayerData
         LastBlink = DateTime.Now;
         if (!blinking.IsAllowed) return;
         OnBlinked(reason);
-        
+        RueDisplay.Get(data).Remove(new Tag((EntryPoint.Instance?.Config?.HintConfig ?? new RueiConfiguration()).EyeHintId));
     }
 
     public void OnBlinked(BlinkReason reason = BlinkReason.Forced)

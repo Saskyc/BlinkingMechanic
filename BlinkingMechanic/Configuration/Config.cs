@@ -10,10 +10,10 @@ namespace BlinkingMechanic
         public bool IsDebug { get; set; } = false;
         
         [Description("Time between blinks. [IN SECONDS]")]
-        public float TimeBlink { get; set; } = 3;
+        public float TimeBlink { get; set; } = 3.5f;
         
         [Description("Time that blinking is lasting. [IN MILISECONDS]")]
-        public float BlinkLasting { get; set; } = 500;
+        public float BlinkLasting { get; set; } = 250;
 
         public List<RoleTypeId> BlacklistedRoles { get; set; } = 
         [
@@ -31,5 +31,8 @@ namespace BlinkingMechanic
         [
             Team.SCPs,
         ];
+
+        public SSSConfiguration SSSConfig { get; set; } = new();
+        public RueiConfiguration HintConfig { get; set; }
     }
 }

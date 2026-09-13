@@ -38,8 +38,14 @@
         <Reference Include="0Harmony, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
           <HintPath>..\packages\Lib.Harmony.2.4.2\lib\net48\0Harmony.dll</HintPath>
         </Reference>
+        <Reference Include="ASS-LabAPI">
+          <HintPath>..\Dependencies\ASS-LabAPI.dll</HintPath>
+        </Reference>
         <Reference Include="LabApi, Version=1.1.6.0, Culture=neutral, processorArchitecture=Amd64">
           <HintPath>..\packages\Northwood.LabAPI.1.1.6\lib\net48\LabApi.dll</HintPath>
+        </Reference>
+        <Reference Include="RueI">
+          <HintPath>..\Dependencies\RueI.dll</HintPath>
         </Reference>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>
@@ -76,12 +82,17 @@
         <Compile Include="API\Events\Test\TestEvents.cs" />
         <Compile Include="API\Extensions\PlayerExtension.cs" />
         <Compile Include="API\PlayerData.cs" />
-        <Compile Include="Config.cs" />
+        <Compile Include="Configuration\Config.cs" />
+        <Compile Include="Configuration\RueiConfiguration.cs" />
+        <Compile Include="Configuration\SSSConfiguration.cs" />
         <Compile Include="EntryPoint.cs" />
+        <Compile Include="EventHandler\AssEventHandler.cs" />
+        <Compile Include="EventHandler\PlayerEventHandler.cs" />
         <Compile Include="Features\BlinkingCoroutine.cs" />
         <Compile Include="Features\BlinkReason.cs" />
         <Compile Include="Features\Scp173ObserverPatch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="SSS\BlinkingMenu.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="App.config" />
