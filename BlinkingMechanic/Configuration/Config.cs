@@ -33,6 +33,6 @@ namespace BlinkingMechanic
         ];
 
         public SSSConfiguration SSSConfig { get; set; } = new();
-        public RueiConfiguration HintConfig { get; set; }
+        public RueiConfiguration HintConfig { get; set; } = new();
     }
 }
