@@ -51,6 +51,8 @@ hint_config:
 
 # How does it look in-game?
 https://www.youtube.com/watch?v=64LlXKs-FvA
+<img width="1035" height="149" alt="obrazek" src="https://github.com/user-attachments/assets/33354c52-1e91-4414-a83e-b948bc2062df" />
+<img width="1916" height="1023" alt="obrazek" src="https://github.com/user-attachments/assets/47f54b57-282d-4528-bc87-b51a1f420948" />
 
 # Installation
 Move BlinkingMechanic.dll to your {Server}\SCP Secret Laboratory\LabAPI\plugins folder either to {port} or global.
